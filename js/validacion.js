@@ -1,58 +1,70 @@
-const formulario =
-document.getElementById("formRegistro");
+const formulario = document.getElementById("formRegistro");
 
-if(formulario){
+if (formulario) {
 
-    formulario.addEventListener(
-    "submit",
-    function(e){
+    formulario.addEventListener("submit", function (e) {
 
         const nombre =
-        document.getElementById("nombre").value;
+            document.getElementById("nombre").value;
 
         const correo =
-        document.getElementById("correo").value;
+            document.getElementById("correo").value;
 
         const password =
-        document.getElementById("password").value;
+            document.getElementById("password").value;
 
-        const captcha =
-        document.getElementById("captcha").value;
+        const color =
+            document.getElementById("color").value;
 
-        if(nombre.trim()===""){
+        // Validación nombre
+        if (nombre.trim() === "") {
+
             e.preventDefault();
+
             alert("Ingrese su nombre");
+
             return;
         }
 
-        if(!correo.includes("@")){
+        // Validación correo
+        if (!correo.includes("@")) {
+
             e.preventDefault();
+
             alert("Correo inválido");
+
             return;
         }
 
-        if(password.length < 8){
+        // Validación contraseña
+        if (password.length < 8) {
+
             e.preventDefault();
+
             alert(
-            "La contraseña debe tener mínimo 8 caracteres"
+                "La contraseña debe tener mínimo 8 caracteres"
             );
+
             return;
         }
 
-        if(captcha != 8){
+        // Validación humana
+        if (color !== "azul") {
+
             e.preventDefault();
+
             alert(
-            "Validación humana incorrecta"
+                "Debes seleccionar el color azul para continuar."
             );
+
             return;
         }
 
+        // POO
         const usuario =
-        new Usuario(nombre,correo);
+            new Usuario(nombre, correo);
 
-        alert(
-        usuario.mostrarDatos()
-        );
+        alert(usuario.mostrarDatos());
 
     });
 

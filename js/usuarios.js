@@ -1,14 +1,15 @@
-class Usuario{
+class Usuario {
 
-    constructor(nombre,correo){
+    constructor(nombre, correo) {
         this.nombre = nombre;
         this.correo = correo;
     }
 
-    mostrarDatos(){
+    mostrarDatos() {
         return `
-        Nombre: ${this.nombre}
-        Correo: ${this.correo}
+Nombre: ${this.nombre}
+Correo: ${this.correo}
         `;
     }
+
 }
