@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Error 404 | MIKYBARBER</title>
+    <title>Recuperar contraseña | MIKYBARBER</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
@@ -33,15 +33,17 @@
     </nav>
 
     <main>
-        <section class="container error-section">
-            <div class="error-card">
-                <span class="error-code">404</span>
-                <h1>Página no encontrada</h1>
-                <p>La dirección que intentaste abrir no existe o fue movida. Puedes regresar al inicio, usar el buscador o revisar el mapa del sitio.</p>
-                <div class="hero-actions justify-content-center">
-                    <a class="btn btn-brand" href="index.html">Volver al inicio</a>
-                    <a class="btn btn-outline-dark" href="mapa-sitio.html">Ver mapa del sitio</a>
+        <section class="container form-section">
+            <div class="form-card small-card">
+                <div class="form-intro">
+                    <span class="badge-soft">Cuenta</span>
+                    <h1>Recuperar contraseña</h1>
+                    <p>Escribe tu correo para simular el proceso de recuperación.</p>
                 </div>
+                <form id="formRecuperar" novalidate>
+                    <div class="mb-3"><label for="recuperarCorreo" class="form-label">Correo electrónico</label><input type="email" id="recuperarCorreo" class="form-control" required placeholder="correo@ejemplo.com"></div>
+                    <button class="btn btn-brand w-100" type="submit">Solicitar recuperación</button>
+                </form>
             </div>
         </section>
     </main>
