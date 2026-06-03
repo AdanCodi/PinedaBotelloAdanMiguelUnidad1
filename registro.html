@@ -18,7 +18,10 @@ rel="stylesheet">
 
 <h2>Registro</h2>
 
-<form id="formRegistro">
+<form
+id="formRegistro"
+action="procesarRegistro.php"
+method="POST">
 
 <div class="mb-3">
 
@@ -27,6 +30,7 @@ rel="stylesheet">
 <input
 type="text"
 id="nombre"
+name="nombre"
 class="form-control">
 
 </div>
@@ -38,6 +42,7 @@ class="form-control">
 <input
 type="email"
 id="correo"
+name="correo"
 class="form-control">
 
 </div>
@@ -47,8 +52,9 @@ class="form-control">
 <label>Contraseña</label>
 
 <input
-type="password"
-id="password"
+type="email"
+id="correo"
+name="correo"
 class="form-control">
 
 </div>
