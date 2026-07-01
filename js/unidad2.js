@@ -86,10 +86,13 @@ class SitioDinamico {
     const resultado = document.getElementById("resultadoServicio");
     const servicio = this.servicios[clave];
 
-    if (servicio) {
+    if (servicio && resultado) {
       resultado.innerHTML = servicio.obtenerDetalle();
       resultado.classList.add("animacion-respuesta");
-      setTimeout(() => resultado.classList.remove("animacion-respuesta"), 600);
+
+      setTimeout(() => {
+        resultado.classList.remove("animacion-respuesta");
+      }, 600);
     }
   }
 
@@ -117,6 +120,10 @@ class SitioDinamico {
     const boton = document.getElementById("btnPromocion");
     const resultado = document.getElementById("resultadoPromocion");
 
+    if (!boton || !resultado) {
+      return;
+    }
+
     boton.addEventListener("click", async () => {
       resultado.innerHTML = "Cargando promoción...";
       boton.disabled = true;
@@ -129,7 +136,10 @@ class SitioDinamico {
       `;
 
       resultado.classList.add("animacion-respuesta");
-      setTimeout(() => resultado.classList.remove("animacion-respuesta"), 600);
+
+      setTimeout(() => {
+        resultado.classList.remove("animacion-respuesta");
+      }, 600);
 
       boton.disabled = false;
     });
@@ -150,6 +160,7 @@ class SitioDinamico {
       tarjeta.addEventListener("mousemove", evento => {
         const x = evento.offsetX;
         const y = evento.offsetY;
+
         tarjeta.style.setProperty("--pos-x", `${x}px`);
         tarjeta.style.setProperty("--pos-y", `${y}px`);
       });
@@ -159,6 +170,10 @@ class SitioDinamico {
   configurarCarrusel() {
     const btnAnterior = document.getElementById("btnAnterior");
     const btnSiguiente = document.getElementById("btnSiguiente");
+
+    if (!btnAnterior || !btnSiguiente) {
+      return;
+    }
 
     btnAnterior.addEventListener("click", () => {
       this.indiceSlide--;
@@ -186,11 +201,16 @@ class SitioDinamico {
     const texto = document.getElementById("textoCarrusel");
     const carrusel = document.querySelector(".carrusel-dinamico");
 
+    if (!titulo || !texto || !carrusel) {
+      return;
+    }
+
     carrusel.classList.add("carrusel-salida");
 
     setTimeout(() => {
       titulo.textContent = this.slides[this.indiceSlide].titulo;
       texto.textContent = this.slides[this.indiceSlide].texto;
+
       carrusel.classList.remove("carrusel-salida");
       carrusel.classList.add("carrusel-entrada");
 
@@ -206,6 +226,10 @@ class SitioDinamico {
     const cantidad = document.getElementById("cantidadInput");
     const resultado = document.getElementById("resultadoTotal");
 
+    if (!boton || !servicio || !cantidad || !resultado) {
+      return;
+    }
+
     boton.addEventListener("click", () => {
       const precio = Number(servicio.value);
       const personas = Number(cantidad.value);
@@ -214,7 +238,9 @@ class SitioDinamico {
       resultado.textContent = `Total: $${total}`;
       resultado.classList.add("animacion-respuesta");
 
-      setTimeout(() => resultado.classList.remove("animacion-respuesta"), 600);
+      setTimeout(() => {
+        resultado.classList.remove("animacion-respuesta");
+      }, 600);
     });
   }
 
@@ -243,8 +269,18 @@ class SitioDinamico {
   configurarModoVisual() {
     const boton = document.getElementById("btnModo");
 
+    if (!boton) {
+      return;
+    }
+
     boton.addEventListener("click", () => {
       document.body.classList.toggle("modo-alterno");
+
+      if (document.body.classList.contains("modo-alterno")) {
+        boton.textContent = "Volver a modo normal";
+      } else {
+        boton.textContent = "Cambiar modo visual";
+      }
     });
   }
 }
