@@ -413,3 +413,139 @@ body {
     .error-section { padding-top: 45px; padding-bottom: 45px; }
     .site-footer a { margin: 8px 12px 0 0; }
 }
+
+/*UNIDAD 2 -------------------------------------------------*/
+
+.dinamico-hero {
+  background: radial-gradient(circle at top right, rgba(217, 249, 157, 0.8), transparent 35%),
+              linear-gradient(135deg, #0f766e, #111827);
+}
+
+.resultado-dinamico {
+  background: #ffffff;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+  color: var(--text-main);
+  text-align: center;
+}
+
+.tarjeta-mouse {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tarjeta-mouse::before {
+  content: "";
+  position: absolute;
+  left: var(--pos-x, 50%);
+  top: var(--pos-y, 50%);
+  width: 0;
+  height: 0;
+  background: rgba(15, 118, 110, 0.12);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.35s ease, height 0.35s ease;
+  z-index: 0;
+}
+
+.tarjeta-mouse > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tarjeta-activa::before {
+  width: 380px;
+  height: 380px;
+}
+
+.tarjeta-activa {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(15, 118, 110, 0.45);
+}
+
+.carrusel-dinamico {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 42px;
+  text-align: center;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.carrusel-dinamico h3 {
+  font-weight: 800;
+  color: var(--brand-main);
+}
+
+.carrusel-salida {
+  opacity: 0;
+  transform: translateX(-25px);
+}
+
+.carrusel-entrada {
+  animation: entradaCarrusel 0.45s ease;
+}
+
+.animacion-respuesta {
+  animation: resaltarRespuesta 0.6s ease;
+}
+
+.elemento-scroll {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.visible-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modo-alterno {
+  background: linear-gradient(135deg, #111827, #0f766e);
+  color: #f8fafc;
+}
+
+.modo-alterno .info-card,
+.modo-alterno .form-card,
+.modo-alterno .resultado-dinamico,
+.modo-alterno .carrusel-dinamico {
+  background: #0f172a;
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.modo-alterno .section-title p,
+.modo-alterno .info-card p {
+  color: #cbd5e1;
+}
+
+@keyframes resaltarRespuesta {
+  0% {
+    transform: scale(0.97);
+    background: #ecfeff;
+  }
+
+  100% {
+    transform: scale(1);
+    background: #ffffff;
+  }
+}
+
+@keyframes entradaCarrusel {
+  0% {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
